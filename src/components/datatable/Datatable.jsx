@@ -5,7 +5,6 @@ import {
   GridToolbarExport,
 } from "@mui/x-data-grid";
 import { userColumns } from "../../datatablesource";
-import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -14,7 +13,7 @@ function CustomToolbar() {
     <GridToolbarContainer sx={{ justifyContent: "flex-end" }}>
       <GridToolbarExport
         csvOptions={{
-          fileName: "employeesDataBase",
+          fileName: "objektiSigurnostiPlovidbe",
           delimiter: ";",
           utf8WithBom: true,
         }}
@@ -89,12 +88,7 @@ const Datatable = () => {
 
   return (
     <div className="datatable">
-      <div className="datatableTitle">
-        Employees
-        <Link to="/new" className="link">
-          Add New
-        </Link>
-      </div>
+      <div className="datatableTitle">Objekti sigurnosti plovidbe</div>
       <DataGrid
         // sx={{
         //   "& .MuiDataGrid-virtualScrollerRenderZone": {
