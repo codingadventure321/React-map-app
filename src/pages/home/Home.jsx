@@ -142,13 +142,16 @@ const Home = () => {
                                         marginBottom: "2px",
                                       }}
                                     >
-                                      <p>
-                                        PS broj:{" "}
-                                        {feature.properties.ps_br || ""}
-                                      </p>
-                                      <p>
-                                        E broj: {feature.properties.e_br || ""}{" "}
-                                      </p>
+                                      {feature.properties.ps_br && (
+                                        <p>
+                                          PS broj: {feature.properties.ps_br}
+                                        </p>
+                                      )}
+                                      {feature.properties.e_br && (
+                                        <p>
+                                          E broj: {feature.properties.e_br}{" "}
+                                        </p>
+                                      )}
                                       <p>{tip(tipObjekta)} </p>
                                       <p>
                                         {feature.properties.lucka_kapetanija}
