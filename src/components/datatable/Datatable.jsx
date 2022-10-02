@@ -107,8 +107,8 @@ const Datatable = () => {
         className="datagrid"
         rows={tableData}
         columns={userColumns}
-        pageSize={20}
-        rowsPerPageOptions={[20]}
+        pageSize={9}
+        rowsPerPageOptions={[9]}
         checkboxSelection
         components={{
           Toolbar: CustomToolbar,
