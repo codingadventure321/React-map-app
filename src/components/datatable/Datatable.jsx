@@ -4,9 +4,9 @@ import {
   GridToolbarContainer,
   GridToolbarExport,
 } from "@mui/x-data-grid";
-import { userColumns } from "../../datatablesource";
+import { userColumns, userRows } from "../../datatablesource";
 import { useEffect, useState } from "react";
-import axios from "axios";
+// import axios from "axios";
 
 function CustomToolbar() {
   return (
@@ -34,7 +34,8 @@ const Datatable = () => {
   }, []);
 
   const fetchData = async () => {
-    const { data } = await axios.get("https://plovput.li-st.net/getObjekti");
+    console.log(userRows);
+    // const { data } = await axios.get("https://rosp.plovput.hr/getObjekti/");
     // var featureNames = [];
 
     // for (var i = 0; i < data.features.length; i++) {
@@ -77,7 +78,7 @@ const Datatable = () => {
           return "";
       }
     }
-    const table = data.features.map((feature, index) => ({
+    const table = await userRows[0].features.map((feature, index) => ({
       id: index,
 
       ...feature.properties,

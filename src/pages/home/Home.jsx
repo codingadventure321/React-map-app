@@ -2,7 +2,7 @@ import "./home.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import { useEffect, useState } from "react";
-import axios from "axios";
+// import axios from "axios";
 import {
   MapContainer,
   TileLayer,
@@ -16,6 +16,7 @@ import "react-leaflet-markercluster/dist/styles.min.css";
 import MarkerClusterGroup from "react-leaflet-markercluster";
 import markerIconPng from "../../images/star-icon.png";
 import { Icon } from "leaflet";
+import { userRows } from "../../datatablesource";
 
 const Home = () => {
   const [tableData, setTableData] = useState([]);
@@ -24,8 +25,9 @@ const Home = () => {
     fetchData();
   }, []);
 
-  const fetchData = async () => {
-    const { data } = await axios.get("https://plovput.li-st.net/getObjekti");
+  const fetchData = () => {
+    const data = userRows[0];
+    // const { data } = await axios.get("https://rosp.plovput.hr/getObjekti/");
     setTableData(data);
   };
 
@@ -51,7 +53,7 @@ const Home = () => {
         <MapContainer
           className="markercluster-map"
           center={[44.815, 15.967]}
-          zoom={7.4}
+          zoom={7}
           minZoom={7}
           maxBounds={[southWest, northEast]}
           maxBoundsViscosity={true}
