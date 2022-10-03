@@ -6,6 +6,8 @@ import {
 } from "@mui/x-data-grid";
 import { userColumns, userRows } from "../../datatablesource";
 import { useEffect, useState } from "react";
+import { CircularProgressbar } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
 // import axios from "axios";
 
 function CustomToolbar() {
@@ -33,8 +35,7 @@ const Datatable = () => {
     fetchData();
   }, []);
 
-  const fetchData = async () => {
-    console.log(userRows);
+  const fetchData = () => {
     // const { data } = await axios.get("https://rosp.plovput.hr/getObjekti/");
     // var featureNames = [];
 
@@ -78,7 +79,7 @@ const Datatable = () => {
           return "";
       }
     }
-    const table = await userRows[0].features.map((feature, index) => ({
+    const table = userRows[0].features.map((feature, index) => ({
       id: index,
 
       ...feature.properties,
@@ -105,7 +106,7 @@ const Datatable = () => {
         // },
         // }}
         className="datagrid"
-        rows={tableData}
+        rows={tableData ? tableData : <CircularProgressbar value={66} />}
         columns={userColumns}
         pageSize={9}
         rowsPerPageOptions={[9]}

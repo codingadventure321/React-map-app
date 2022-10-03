@@ -42,13 +42,15 @@ const Home = () => {
     "Zadar",
     "Šibenik",
   ];
-  var southWest = [41.50943, 13.09819],
+
+  //bounderies
+  let southWest = [41.50943, 13.09819],
     northEast = [46.49537, 18.83504];
-  // bounderies = L.latLngBounds(southWest, northEast);
+
   return (
-    <div className="list">
+    <div className="map">
       <Sidebar />
-      <div className="listContainer">
+      <div className="mapContainer">
         <Navbar />
         <MapContainer
           className="markercluster-map"

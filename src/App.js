@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./style/dark.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
-import Table from "./pages/table/table";
+import Table from "./pages/table/Table";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
